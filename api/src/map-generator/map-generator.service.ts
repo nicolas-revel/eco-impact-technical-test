@@ -59,32 +59,23 @@ export class MapGeneratorService {
     return baseMap;
   }
 
-  // Generate a random shaped biome that can be a rectangle
   generateRandomShapedBiome(
     grid: Cell[][],
     biome: Biome,
     width: number,
     height: number
   ): Cell[][] {
-    // Randomly generate the width and height of the biome. Must be at least 1
     const biomeWidth = Math.floor(Math.random() * width) || 1;
     const biomeHeight = Math.floor(Math.random() * height) || 1;
 
-    // Randomly generate the x and y position of the biome must be within the grid
     const x = Math.floor(Math.random() * (width - biomeWidth));
     const y = Math.floor(Math.random() * (height - biomeHeight));
 
-    // Update the grid with the new biome
     for (let i = x; i < x + biomeWidth; i++) {
       for (let j = y; j < y + biomeHeight; j++) {
-        console.log(`Updating cell at x: ${i}, y: ${j}`);
         grid[i][j].biome = biome;
       }
     }
-
-    console.log(
-      `Generated a ${biome} biome at x: ${x}, y: ${y}, width: ${biomeWidth}, height: ${biomeHeight}`
-    );
 
     return grid;
   }
