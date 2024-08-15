@@ -1,7 +1,24 @@
 import { BiomeType } from "@shared/types/biome.type";
+import { MapConfigType } from "@shared/types/map-config.type";
+import { useState } from "react";
+import { useMap } from "../hooks/map.hook";
 
 export default function MapGenerator() {
+  const { generateMap } = useMap();
+
   const availableBiomes: BiomeType[] = ["plain", "desert", "forest", "ocean"];
+
+  const [mapConfig, setMapConfig] = useState<MapConfigType>({
+    availableBiome: [],
+    baseBiome: "plain",
+    numberOfBiomes: 3,
+    width: 10,
+    height: 10,
+  });
+
+  const handleSubmit = async () => {
+    await generateMap(mapConfig);
+  };
 
   return (
     <>
@@ -79,7 +96,7 @@ export default function MapGenerator() {
         </select>
       </label>
 
-      <button onClick={generateMap}>Generate map</button>
+      <button onClick={handleSubmit}>Generate map</button>
     </>
   );
 }

@@ -1,21 +1,30 @@
+import { useMap } from "../hooks/map.hook";
+
 export default function MapDisplayer() {
-  const map = {
-    width: 10,
-    height: 10,
-    grid: [],
+  const colorTable = {
+    plain: "bg-green-500",
+    desert: "bg-yellow-500",
+    forest: "bg-green-800",
+    ocean: "bg-blue-500",
   };
+
+  const map = useMap();
+
   return (
     <div>
       <h2>Map</h2>
-      <div>
+      <table>
         {map.grid.map((row, rowIndex) => (
-          <div key={rowIndex}>
+          <tr key={rowIndex}>
             {row.map((cell, cellIndex) => (
-              <div key={cellIndex}>{cell.biome}</div>
+              <td
+                key={cellIndex}
+                className={`h-10 w-10 ${colorTable[cell.biome]}`}
+              ></td>
             ))}
-          </div>
+          </tr>
         ))}
-      </div>
+      </table>
     </div>
   );
 }

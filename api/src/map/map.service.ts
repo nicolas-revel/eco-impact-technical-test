@@ -35,9 +35,9 @@ export class MapGeneratorService {
 
   private getBaseMap(width: number, height: number, baseBiome: Biome): MapType {
     const grid: Cell[][] = [];
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < height; i++) {
       const row: Cell[] = [];
-      for (let j = 0; j < height; j++) {
+      for (let j = 0; j < width; j++) {
         row.push({
           x: i,
           y: j,
