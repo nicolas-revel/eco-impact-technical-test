@@ -16,10 +16,16 @@ Then, since the project can be run on docker, use docker-compose to run the proj
 docker compose up -d --build
 ```
 
-Finnaly, use prisma to generate the different migrations to the database :
+Finnaly, use prisma to push the different migrations to the database :
 
 ```bash
-pnpm prisma migrate deploy && pnpm prisma generate
+cd api/
+
+docker compose exec api pnpx prisma db push
 ```
 
 Your project should be running with api on `localhost:3000` and client on `localhost:5173`.
+
+## Configuration and environment
+
+There are two environment files in the project. To make the project work with a basic configuration, just change the name of the files to _.env_. **Do not do this in production !**
