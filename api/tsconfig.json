@@ -13,10 +13,11 @@
     "rootDir": "./",
     "baseUrl": "./",
     "paths": {
-      "@shared/*": ["../shared/*"],
+      "@shared/*": ["shared/*"],
       "@/api": ["./src/*"]
     },
     "skipLibCheck": true,
     "incremental": true
-  }
+  },
+  "include": ["src/**/*", "../shared/**/*"]
 }
