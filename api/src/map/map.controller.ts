@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { MapConfigType } from "../../../shared/types/types/map-config.type";
+import { MapConfigType } from "@shared/types/map-config.type";
 import { MapGeneratorService } from "./map.service";
 
 @Controller("maps")

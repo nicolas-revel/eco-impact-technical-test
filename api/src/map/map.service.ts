@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
+import { Biome } from "@shared/types/biome.type";
+import { Cell } from "@shared/types/cell.type";
+import { MapConfigType } from "@shared/types/map-config.type";
+import { MapType } from "@shared/types/map.type";
 import { PrismaService } from "src/prisma.service";
-import { MapType } from "src/types/map.type";
-import { Biome } from "../../../shared/types/types/biome.type";
-import { Cell } from "../../../shared/types/types/cell.type";
-import { MapConfigType } from "../../../shared/types/types/map-config.type";
 
 @Injectable()
 export class MapGeneratorService {
@@ -35,9 +35,9 @@ export class MapGeneratorService {
 
   private getBaseMap(width: number, height: number, baseBiome: Biome): MapType {
     const grid: Cell[][] = [];
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < height; i++) {
       const row: Cell[] = [];
-      for (let j = 0; j < height; j++) {
+      for (let j = 0; j < width; j++) {
         row.push({
           x: i,
           y: j,
