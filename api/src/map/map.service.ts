@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
+import { Biome } from "@shared/types/biome.type";
+import { Cell } from "@shared/types/cell.type";
+import { MapConfigType } from "@shared/types/map-config.type";
+import { MapType } from "@shared/types/map.type";
 import { PrismaService } from "src/prisma.service";
-import { MapType } from "src/types/map.type";
-import { Biome } from "../../../shared/types/types/biome.type";
-import { Cell } from "../../../shared/types/types/cell.type";
-import { MapConfigType } from "../../../shared/types/types/map-config.type";
 
 @Injectable()
 export class MapGeneratorService {
