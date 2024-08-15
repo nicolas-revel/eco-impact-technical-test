@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { PrismaService } from "src/prisma.service";
-import { MapGeneratorController } from "./map-generator.controller";
-import { MapGeneratorService } from "./map-generator.service";
+import { MapGeneratorController } from "./map.controller";
+import { MapGeneratorService } from "./map.service";
 
 @Module({
   providers: [MapGeneratorService, PrismaService],

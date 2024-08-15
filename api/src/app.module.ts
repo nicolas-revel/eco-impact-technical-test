@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { MapGeneratorModule } from "./map-generator/map-generator.module";
+import { MapGeneratorModule } from "./map/map.module";
 import { PrismaService } from "./prisma.service";
 
 @Module({
